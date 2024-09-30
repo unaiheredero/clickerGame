@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clicker Erronka</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <p>Puntos por segundo: <a id="pointsPerSecond">0</a></p>
+  <div class="counter" id="counter">0</div>
+  <button class="click-button" onclick="clickerGame.incrementCounter()"></button>
+
+  <p>mejora actual: <a id="mejoraID">1</a></p>
+
+  <button class="upgrade-button"onclick="clickerGame.setUpgrade()" ></button>
+</body>
+<script src="src/src.js"></script>
+
+</html>

@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+  }
+  .counter {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  .click-button {
+    padding: 30px 30px;
+    background-color: #794f18;
+    color: white;
+    border: solid;
+    border-color:black ;
+    border-radius: 100%;
+    cursor: pointer;
+    width: 500px;
+    height: 500px;
+  }
+  .click-button:hover {
+    background-color: rgba(150, 120, 75, 0.747);
+  }
+
+  .upgrade-button{
+    width: 200px;
+    height: 75px;
+    background-color: aquamarine;
+    border: solid, 0.5px;
+    border-color:black ;
+    border-radius: 10px;
+    background-image: url(../images/fabrika.png);
+    background-size: cover;
+    background-position: center;
+  }
