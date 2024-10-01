@@ -1,59 +1,73 @@
 const clickerGame = {
-    points: 0,
-    clickPower: 1,
-    auto: 0,
-    upgradeCost: 10, // Costo inicial de la mejora
-    autoUpgradeCost: 20, // Costo para aumentar la generación automática
+  points: 0,
+  clickPower: 1,
+  auto: 0,
+  autoUpgrades: [
+      { baseCost: 20, increment: 1, purchased: 0 },  // Primera mejora automática
+      { baseCost: 50, increment: 2, purchased: 0 },  // Segunda mejora automática
+      { baseCost: 100, increment: 5, purchased: 0 }, // Tercera mejora automática
+      { baseCost: 200, increment: 10, purchased: 0 }, // Cuarta mejora automática
+      { baseCost: 500, increment: 20, purchased: 0 }  // Quinta mejora automática
+  ],
+  clickUpgradeCost: 10, // Costo inicial de la mejora de clic
 
-    // Función para incrementar el contador manualmente
-    incrementCounter() {
-        this.points += this.clickPower;
-        document.getElementById('counter').innerText = this.points;
-    },
+  // Función para incrementar el contador manualmente
+  incrementCounter() {
+      this.points += this.clickPower;
+      document.getElementById('counter').innerText = this.points;
+  },
 
-    autoCounter() {
-        this.points += this.auto;
-        document.getElementById('counter').innerText = this.points;
-        document.getElementById('pointsPerSecond').innerText = this.auto;
-    },
+  // Aumenta el poder de clic
+  setClickUpgrade() {
+      if (this.points >= this.clickUpgradeCost) {
+          this.clickPower++;
+          this.points -= this.clickUpgradeCost; // Deduce puntos
+          this.clickUpgradeCost = Math.floor(this.clickUpgradeCost * 1.5); // Aumenta el costo de la mejora de clic
+          
+          // Actualiza el texto en pantalla
+          document.getElementById('mejoraID').innerText = this.clickPower;
+          document.getElementById('counter').innerText = this.points; // Actualiza los puntos
+          document.getElementById('clickUpgradeCost').innerText = this.clickUpgradeCost; // Actualiza el costo de la mejora de clic
+      } else {
+          console.log("No tienes suficientes puntos para mejorar el poder de clic.");
+      }
+  },
 
-    setUpgrade() {
-        if (this.points >= this.upgradeCost) {
-            this.clickPower++;
-            this.points -= this.upgradeCost; // Deduce puntos
-            this.upgradeCost *= 1.5; // Aumenta el costo de la mejora
-            
-            // Actualiza el texto en pantalla
-            document.getElementById('mejoraID').innerText = this.clickPower;
-            document.getElementById('upgradeCost').innerText = Math.floor(this.upgradeCost);
-            document.getElementById('counter').innerText = this.points; // Actualiza los puntos
-        } else {
-            console.log("No tienes suficientes puntos para mejorar.");
-        }
-    },
+  autoCounter() {
+      this.points += this.auto;
+      document.getElementById('counter').innerText = this.points;
+      document.getElementById('pointsPerSecond').innerText = this.auto;
+  },
 
-    // Función para incrementar el contador automáticamente cada 1 segundo
-    startAutoIncrement() {
-        setInterval(() => {
-            this.autoCounter();
-        }, 1000);
-    },
+  // Mejora de generación automática
+  setAutoUpgrade(index) {
+      const upgrade = this.autoUpgrades[index];
+      const currentCost = Math.floor(upgrade.baseCost * Math.pow(1.5, upgrade.purchased));
 
-    // Método para mejorar la generación automática
-    setAutoUpgrade() {
-        if (this.points >= this.autoUpgradeCost) {
-            this.auto++;
-            this.points -= this.autoUpgradeCost;
-            this.autoUpgradeCost *= 1.5; // Aumenta el costo de la mejora
-            
-            // Actualiza el texto en pantalla
-            document.getElementById('pointsPerSecond').innerText = this.auto;
-            document.getElementById('counter').innerText = this.points; // Actualiza los puntos
-            document.getElementById('autoUpgradeCost').innerText = Math.floor(this.autoUpgradeCost);
-        } else {
-            console.log("No tienes suficientes puntos para mejorar la generación automática.");
-        }
-    }
+      if (this.points >= currentCost) {
+          this.auto += upgrade.increment;
+          this.points -= currentCost;
+
+          // Incrementar el número de mejoras compradas
+          upgrade.purchased++;
+
+          // Actualiza el texto en pantalla
+          document.getElementById('pointsPerSecond').innerText = this.auto;
+          document.getElementById('counter').innerText = this.points; // Actualiza los puntos
+
+          // Actualiza el costo para la próxima mejora
+          document.getElementById(`autoUpgradeCost${index}`).innerText = Math.floor(upgrade.baseCost * Math.pow(1.5, upgrade.purchased));
+      } else {
+          console.log("No tienes suficientes puntos para mejorar la generación automática.");
+      }
+  },
+
+  // Función para incrementar el contador automáticamente cada 1 segundo
+  startAutoIncrement() {
+      setInterval(() => {
+          this.autoCounter();
+      }, 1000);
+  }
 };
 
 clickerGame.startAutoIncrement();

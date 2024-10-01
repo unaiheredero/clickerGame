@@ -1,35 +1,58 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 50px;
-  }
-  .counter {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
-  .click-button {
-    padding: 30px 30px;
-    background-color: #794f18;
-    color: white;
-    border: solid;
-    border-color:black ;
-    border-radius: 100%;
-    cursor: pointer;
-    width: 500px;
-    height: 500px;
-  }
-  .click-button:hover {
-    background-color: rgba(150, 120, 75, 0.747);
-  }
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 50px;
+  background-color: #f0f4f8; /* Fondo claro para mayor contraste */
+}
 
-  .upgrade-button{
-    width: 200px;
-    height: 75px;
-    background-color: aquamarine;
-    border: solid, 0.5px;
-    border-color:black ;
-    border-radius: 10px;
-    background-image: url(../images/fabrika.png);
-    background-size: cover;
-    background-position: center;
-  }
+.counter {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #333; /* Color de texto oscuro */
+}
+
+.button-container {
+  display: flex; /* Utiliza flexbox para la disposición */
+  justify-content: space-between; /* Espacia los elementos */
+  align-items: center; /* Alinea verticalmente los elementos */
+  margin-top: 100px; /* Margen superior */
+  margin-left: 15%;
+}
+
+.click-button {
+  padding: 30px;
+  background-color: #794f18; /* Color marrón oscuro */
+  color: white;
+  border: solid 2px black; /* Borde sólido */
+  border-radius: 50%; /* Redondeado completamente */
+  cursor: pointer;
+  width: 500px;
+  height: 500px;
+  font-size: 24px; /* Tamaño de fuente más pequeño para mejor legibilidad */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.click-button:hover {
+  background-color: rgba(150, 120, 75, 0.747); /* Color al pasar el mouse */
+}
+
+.upgrade-section {
+  text-align: center; /* Alinear texto a la izquierda */
+  margin-right: 25%;
+}
+
+.upgrade-button {
+  width: 200px;
+  height: 75px;
+  background-color: aquamarine; /* Color de fondo */
+  border: solid 1px black; /* Borde sólido */
+  border-radius: 10px; /* Esquinas redondeadas */
+  cursor: pointer;
+  font-size: 18px; /* Tamaño de fuente */
+  margin: 10px 0; /* Espaciado vertical */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.upgrade-button:hover {
+  background-color: #5bc0de; /* Color al pasar el mouse */
+}

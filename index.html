@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clicker Erronka</title>
-  <link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Erronka</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-  <p>Puntos por segundo: <a id="pointsPerSecond">0</a></p>
-  <div class="counter" id="counter">0</div>
-  <button class="click-button" onclick="clickerGame.incrementCounter()">Haz clic</button>
+    <h1>¡Bienvenido al Clicker!</h1>
+    <p>Puntos por segundo: <a id="pointsPerSecond">0</a></p>
+    <div class="counter" id="counter">0</div>
 
-  <p>Mejora actual: <a id="mejoraID">1</a> (Costo: <span id="upgradeCost">10</span> puntos)</p>
-  <button class="upgrade-button" onclick="clickerGame.setUpgrade()">Mejorar Click Power</button><br>
+    <div class="button-container">
+        <button class="click-button" onclick="clickerGame.incrementCounter()">Haz clic</button>
 
-  <p>Generación automática: <a id="autoUpgradeCost">20</a> puntos</p>
-  <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade()">Mejorar Generación Automática</button><br>
+        <div class="upgrade-section">
+            <p>Mejora de clic: <a id="mejoraID">1</a> (Costo: <span id="clickUpgradeCost">10</span> puntos)</p>
+            <button class="upgrade-button" onclick="clickerGame.setClickUpgrade()">Mejorar Click Power</button><br>
+
+            <h3>Mejoras Automáticas:</h3>
+            <div id="autoUpgrades">
+                <p>Mejora 1: (Costo: <span id="autoUpgradeCost0">20</span> puntos)</p>
+                <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(0)">Generación Automática +1</button><br>
+
+                <p>Mejora 2: (Costo: <span id="autoUpgradeCost1">50</span> puntos)</p>
+                <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(1)">Generación Automática +2</button><br>
+
+                <p>Mejora 3: (Costo: <span id="autoUpgradeCost2">100</span> puntos)</p>
+                <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(2)">Generación Automática +5</button><br>
+
+                <p>Mejora 4: (Costo: <span id="autoUpgradeCost3">200</span> puntos)</p>
+                <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(3)">Generación Automática +10</button><br>
+
+                <p>Mejora 5: (Costo: <span id="autoUpgradeCost4">500</span> puntos)</p>
+                <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(4)">Generación Automática +20</button><br>
+            </div>
+        </div>
+    </div>
+    
+    <script src="src/src.js"></script>
 </body>
-<script src="src/src.js"></script>
 </html>
