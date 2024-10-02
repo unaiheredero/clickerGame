@@ -4,7 +4,33 @@ body {
   padding-top: 5px;
   background-color: #f0f4f8; /* Fondo claro para mayor contraste */
 }
+#autoUpgrades {
+  max-height: 475px; /* Altura máxima para el contenedor */
+  overflow-y: auto; /* Barra de desplazamiento vertical */
+  border: 1px solid #ccc; /* Borde del contenedor */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 8px; /* Esquinas redondeadas */
+  width: 150px;
+  margin: auto;
+}
 
+.boton-mejora {
+  height: 50%;
+  overflow-y: auto; /* Barra de desplazamiento vertical */
+}
+
+.boton-mejora:-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.boton-mejora:-webkit-scrollbar-thumb {
+  background: #888; /* Color del 'pulgar' (parte que se puede arrastrar) */
+  border-radius: 4px; /* Esquinas redondeadas del 'pulgar' */
+}
+
+.boton-mejora:-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color del 'pulgar' al pasar el ratón */
+}
 .counter {
   font-size: 48px;
   margin-bottom: 20px;
@@ -20,27 +46,43 @@ body {
 
 .click-button {
   padding: 30px;
-  background-color: #794f18; /* Color marrón oscuro */
-  color: white;
-  border: solid 2px black; /* Borde sólido */
-  border-radius: 50%; /* Redondeado completamente */
-  cursor: pointer;
+  cursor: progress;
   width: 500px;
   height: 500px;
-  font-size: 24px; /* Tamaño de fuente más pequeño para mejor legibilidad */
-  transition: background-color 0.3s ease; /* Transición suave */
+  font-size: 24px; /* Aumentar el tamaño del texto en el botón */
+  transition: transform 0.1s ease; /* Transición para animación */
+  cursor: url(../images/axe-cursor.png), auto;
+}
+/* Efecto de escala al hacer clic */
+.click-button:active {
+  transform: scale(0.9); /* Reduce el tamaño del botón */
 }
 
-.click-button:hover {
-  background-color: rgba(150, 120, 75, 0.747); /* Color al pasar el mouse */
+/* Efecto de rebote al soltar el botón */
+@keyframes bounce {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
+
+/* Clase que se añade al hacer clic */
+.animate {
+  animation: bounce 0.3s; /* Duración de la animación */
+}
+
 
 .upgrade-section {
   margin-right: 25%;
 }
 
 .upgrade-button {
-  width: 200px;
+  width: 100px;
   height: 75px;
   background-color: aquamarine; /* Color de fondo */
   border: solid 1px black; /* Borde sólido */

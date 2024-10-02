@@ -15,6 +15,14 @@ const clickerGame = {
   incrementCounter() {
     this.points += this.clickPower;
     document.getElementById("counter").innerText = this.points;
+    // Añadir clase de animación
+    const clickButton = document.querySelector('.click-button');
+    clickButton.classList.add('animate');
+
+    // Quitar la clase después de la animación
+    setTimeout(() => {
+        clickButton.classList.remove('animate');
+    }, 300); // Duración de la animación
   },
 
   // Aumenta el poder de clic

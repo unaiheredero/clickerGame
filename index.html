@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <h1>¡Bienvenido al Clicker!</h1>
+    <h1>¡Bienvenido al Árbol Clicker!</h1>
     <p>Puntos por segundo: <a id="pointsPerSecond">0</a></p>
     <div class="counter" id="counter">0</div>
 
     <div class="button-container">
-        <button class="click-button" onclick="clickerGame.incrementCounter()">Haz clic</button>
+        <img src="./images/arbol.png" class="click-button" onclick="clickerGame.incrementCounter()"></img>
 
         <div class="upgrade-section">
             <p>Mejora de clic:  (Costo: <span id="clickUpgradeCost">10</span> puntos)<br> Click power actual: <a id="mejoraID">1</a></p>
@@ -20,23 +20,23 @@
 
             <h3>Mejoras Automáticas:</h3>
             <div id="autoUpgrades">
-                <div style="display: block;" id="mejora1">
-                    <p>Mejora 1: (Costo: <span id="autoUpgradeCost0">20</span> puntos) <br>Cantidad comprada: <a id="upgradeAmount1">1</a></p>
-                    <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(0)">Generación Automática +1</button><br>
+                <div class="boton-mejora" style="display: block;" id="mejora1">
+                    <p>-<span id="autoUpgradeCost0">20</span>$<br>kantitatea: <a id="upgradeAmount1">1</a></p>
+                    <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(0)"><img src="./images/ardilla.png" alt="Ícono Ardilla" style="width: 50px; height: 50px; vertical-align: middle;"/>+1</button><br>
                 </div>
-                <div style="display: none;" id="mejora2">
-                    <p>Mejora 2: (Costo: <span id="autoUpgradeCost1">50</span> puntos) <br>Cantidad comprada: <a id="upgradeAmount2">0</a></p>
-                    <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(1)">Generación Automática +2</button><br>
+                <div class="boton-mejora" style="display: none;" id="mejora2">
+                    <p>-<span id="autoUpgradeCost1">50</span>$<br>kantitatea: <a id="upgradeAmount2">0</a></p>
+                    <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(1)"><img src="./images/motosierra.png" alt="Ícono Ardilla" style="width: 60px; height: 50px; vertical-align: middle;"/>+2</button><br>
                 </div>
-                <div style="display: none;" id="mejora3">
+                <div class="boton-mejora" style="display: none;" id="mejora3">
                     <p>Mejora 3: (Costo: <span id="autoUpgradeCost2">100</span> puntos) <br>Cantidad comprada: <a id="upgradeAmount3">0</a></p>
                     <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(2)">Generación Automática +5</button><br>
                 </div>
-                <div style="display: none;" id="mejora4">
+                <div class="boton-mejora" style="display: none;" id="mejora4">
                     <p>Mejora 4: (Costo: <span id="autoUpgradeCost3">200</span> puntos) <br>Cantidad comprada: <a id="upgradeAmount4">0</a></p>
                     <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(3)">Generación Automática +10</button><br>
                 </div>
-                <div style="display: none;" id="mejora5">
+                <div class="boton-mejora" style="display: none;" id="mejora5">
                     <p>Mejora 5: (Costo: <span id="autoUpgradeCost4">500</span> puntos) <br>Cantidad comprada: <a id="upgradeAmount5">0</a></p>
                     <button class="upgrade-button" onclick="clickerGame.setAutoUpgrade(4)">Generación Automática +20</button><br>
                 </div>
