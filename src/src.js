@@ -16,12 +16,12 @@ const clickerGame = {
     this.points += this.clickPower;
     document.getElementById("counter").innerText = this.points;
     // Añadir clase de animación
-    const clickButton = document.querySelector('.click-button');
-    clickButton.classList.add('animate');
+    const clickButton = document.querySelector(".click-button");
+    clickButton.classList.add("animate");
 
     // Quitar la clase después de la animación
     setTimeout(() => {
-        clickButton.classList.remove('animate');
+      clickButton.classList.remove("animate");
     }, 300); // Duración de la animación
   },
 
@@ -42,6 +42,8 @@ const clickerGame = {
         "No tienes suficientes puntos para mejorar el poder de clic."
       );
     }
+    let audio = new Audio("./sfx/Mejora.mp3");
+    audio.play();
   },
 
   autoCounter() {
@@ -66,8 +68,9 @@ const clickerGame = {
 
     if (this.points >= currentCost) {
       this.autoUpgrades[index].ammount++;
-      document.getElementById("upgradeAmount"+(index+1)).innerHTML = this.autoUpgrades[index].ammount
-      console.log(this.autoUpgrades[index].ammount)
+      document.getElementById("upgradeAmount" + (index + 1)).innerHTML =
+        this.autoUpgrades[index].ammount;
+      console.log(this.autoUpgrades[index].ammount);
       mostrarMejora(index);
 
       this.auto += upgrade.increment;
@@ -86,6 +89,26 @@ const clickerGame = {
       );
     } else {
     }
+
+    const audioArray = [
+      new Audio("./sfx/Aizkolari1.mp3"),
+      new Audio("./sfx/Aizkolari2.mp3"),
+      new Audio("./sfx/Aizkolari3.mp3"),
+    ];
+
+    if (index == 0) {
+      audio = new Audio("./sfx/Castor.mp3");
+    } else if (index == 1) {
+      audio = new Audio("./sfx/Motosierra.mp3");
+    } else if (index == 2) {
+      let number = Math.floor(Math.random() * 3);
+      audio = audioArray[number];
+    } else if (index == 3) {
+      audio = new Audio("./sfx/Motosierra.mp3");
+    } else {
+      audio = new Audio("./sfx/Steve.mp3");
+    }
+    audio.play();
   },
 
   // Función para incrementar el contador automáticamente cada 1 segundo
@@ -96,4 +119,18 @@ const clickerGame = {
   },
 };
 
-clickerGame.startAutoIncrement();
+let audioBgm = new Audio("./sfx/bgm.mp3");
+
+// Función para reproducir el audio
+
+function playAudio() {
+  audioBgm.play().catch(function (error) {
+    console.error("Error al intentar reproducir el audio:", error);
+  });
+}
+
+window.onload = function () {
+  audioBgm.loop = true;
+  playAudio();
+  console.log("Página cargada. Haz clic en el botón para reproducir música.");
+};
