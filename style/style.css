@@ -3,6 +3,10 @@ body {
   text-align: center;
   padding-top: 5px;
   background-color: #f0f4f8; /* Fondo claro para mayor contraste */
+  /* background-image: url("../images/minecraft.jpg"); */
+  background-repeat: no-repeat;
+  background-size: contain; /* Ajusta la imagen dentro del área, sin recortes */
+  background-position: center;
 }
 #autoUpgrades {
   max-height: 475px; /* Altura máxima para el contenedor */
@@ -10,7 +14,7 @@ body {
   border: 1px solid #ccc; /* Borde del contenedor */
   padding: 10px; /* Espaciado interno */
   border-radius: 8px; /* Esquinas redondeadas */
-  width: 150px;
+  width: 400px;
   margin: auto;
 }
 
@@ -47,8 +51,8 @@ body {
 .click-button {
   padding: 30px;
   cursor: progress;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 700px;
   font-size: 24px; /* Aumentar el tamaño del texto en el botón */
   transition: transform 0.1s ease; /* Transición para animación */
   cursor: url(../images/axe-cursor.png), auto;
@@ -76,7 +80,6 @@ body {
   animation: bounce 0.3s; /* Duración de la animación */
 }
 
-
 .upgrade-section {
   margin-right: 25%;
 }
@@ -95,4 +98,14 @@ body {
 
 .upgrade-button:hover {
   background-color: #5bc0de; /* Color al pasar el mouse */
+}
+
+#info-text {
+  margin-top: 20px;
+  color: #333;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Ocultar por defecto */
 }
