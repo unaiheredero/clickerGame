@@ -114,10 +114,12 @@ const clickerGame = {
   // Función para incrementar el contador automáticamente cada 1 segundo
   startAutoIncrement() {
     setInterval(() => {
-      this.autoCounter();
+    this.autoCounter();
     }, 1000);
   },
 };
+
+clickerGame.startAutoIncrement();
 
 let audioBgm = new Audio("./sfx/bgm.mp3");
 
